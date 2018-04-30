@@ -1,17 +1,26 @@
 import { connect } from 'react-redux'
-import React from 'react'
-import DisplayList from '../components/DisplayList'
-import { toggletodo} from '../actions'
-
+import { bindActionCreators } from 'redux'
+import * as TodoActionCreators from '../actions'
+import Display from './Display'
+// import { DisplayList } from '../components/DisplayList'
+ 
 
 const mapStateToProps = state => ({
-   todos:state.todos
+   list:state.todos,
 })
-const mapDispatchToProps = dispatch => ({
-  toggletodo: id => dispatch(toggletodo(id))
-})
+  
+function mapDispatchToProps(dispatch) {
+      return {
+        actions: bindActionCreators(
+          {
+            ...TodoActionCreators
+          },
+          dispatch
+        )
+      };
+    }
+    
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DisplayList)
+  mapStateToProps,mapDispatchToProps
+)(Display)

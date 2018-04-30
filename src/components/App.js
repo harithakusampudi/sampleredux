@@ -1,13 +1,13 @@
 
 
 import React from 'react'
-import Display from '../containers/Display'
+// import Display from '../containers/Displaycontainer'
 import Displaycontainer from '../containers/Displaycontainer'
+// import DisplayList from './DisplayList'
 
 const App = () => (
   <div>
- <Display/>
- <Displaycontainer/>
+    <Displaycontainer/>
   </div>
 )
 

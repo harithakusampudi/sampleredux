@@ -1,19 +1,19 @@
-import {ADD_TODO,TOGGLE_TODO }from '../actions'
+import {RECEIVE_LIST,AUTO_CLICK }from '../actions'
 
-const todos = (state=[], action) => {
+const todos = (state={}, action) => {
     switch (action.type) {
-      case ADD_TODO:
-        return [
-          ...state,{
-            input:action.input,
-            id:action.id,
-            completed:false
-          }
-        ];
-      case TOGGLE_TODO:
-        return state.map(todo=> (todo.id === action.id)? {...todo, completed: !todo.completed} : todo)
-      default:
-        return state
+      case RECEIVE_LIST:
+      console.log("list",action.list)
+      return { 
+        search_term:action.search_term,
+        list:action.list
+        }
+        case AUTO_CLICK:
+        return { 
+          search_term:action.search_term,
+          }  
+    default:
+    return state
     }
   }
   export default todos

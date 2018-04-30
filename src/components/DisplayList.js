@@ -1,25 +1,19 @@
 
 import React from 'react'
+// import { connect } from "react-redux";
 import PropTypes from 'prop-types'
-import { toggletodo } from '../actions'
+// import { toggletodo } from '../actions'
 
-const DisplayList = ({ todos,toggletodo }) => (
-
-   todos.map(todo=><li onClick={()=>(toggletodo(todo.id))}
-                      style={{ textDecoration: todo.completed ? 'line-through' : 'none'}}>
-                      {todo.input}{todo.completed}
-                  </li>
-            )
-  
+const DisplayList = ({ list }) => (
+      console.log(list),
+      <p>{list}</p>
 )
+  //  list.map(todo=><li>{todo.description}</li>))
 
 DisplayList.propTypes = {
-  todos:PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
-    input: PropTypes.string.isRequired
+  todos:PropTypes.objectOf(PropTypes.shape({
+    list: PropTypes.array.isRequired
   }).isRequired).isRequired,
-  toggletodo: PropTypes.func.isRequired
 }
 
-export default DisplayList
+export default DisplayList;
