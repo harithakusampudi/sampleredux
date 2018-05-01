@@ -6,7 +6,7 @@ import Display from './Display'
  
 
 const mapStateToProps = state => ({
-   list:state.todos,
+   todos:state.todos,
 })
   
 function mapDispatchToProps(dispatch) {

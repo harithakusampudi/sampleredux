@@ -1,4 +1,4 @@
-import {RECEIVE_LIST,AUTO_CLICK }from '../actions'
+import { RECEIVE_LIST, AUTO_CLICK, GET_LOCATION }from '../actions'
 
 const todos = (state={}, action) => {
     switch (action.type) {
@@ -11,7 +11,12 @@ const todos = (state={}, action) => {
         case AUTO_CLICK:
         return { 
           search_term:action.search_term,
-          }  
+          } 
+          case GET_LOCATION:
+          return { 
+            search_term:action.search_term,
+            results:action.results
+            }  
     default:
     return state
     }
