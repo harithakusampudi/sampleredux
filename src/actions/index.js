@@ -25,11 +25,17 @@ export const fetchlist = search_term => dispatch => {
     .then(response => response.json())
     .then(json => dispatch(receivelocationlist(search_term, json)))
   }
-  export const receivelocationlist = (search_term, json) => ({
-    type: GET_LOCATION,
-    search_term:search_term,
-    results:json.results
+  export const receivelocationlist = (search_term, json) => dispatch =>{
+    var {place_id}=json.results[0]
+    return fetch("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id +"&key=AIzaSyBUJx80sMf2DQF9hsGC0tgiKxGusOt0KEo")
+    .then(response => response.json())
+    .then(json => dispatch(placeidlocation(json)))
+  }
+  export const placeidlocation = json =>({
+    type:GET_LOCATION,
+    results:json.result
   })
-
   //maps.googleapis.com/maps/api/place/details/json?placeid=" + search_term.place_id +"&key=AIzaSyBUJx80sMf2DQF9hsGC0tgiKxGusOt0KEo"
- 
+  // type: GET_LOCATION,
+  // search_term:search_term,
+  // results:json.results

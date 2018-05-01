@@ -7,8 +7,8 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) =>
         {props.results? 
             <GoogleMap
                     defaultZoom={10}
-                    defaultCenter={{ lat:props.results[0].geometry.location.lat, lng: props.results[0].geometry.location.lng }}>
-                    {<Marker position={{ lat:props.results[0].geometry.location.lat, lng:props.results[0].geometry.location.lng }} ></Marker>}
+                    defaultCenter={{ lat:props.results.geometry.location.lat, lng: props.results.geometry.location.lng }}>
+                    {<Marker position={{ lat:props.results.geometry.location.lat, lng:props.results.geometry.location.lng }} ></Marker>}
             </GoogleMap>
              : <div/>
         }
